@@ -1,6 +1,6 @@
 package printing;
 
-public class Machine {
+public class Machine implements IMachine {
 	
 	//private boolean isOn;
 	protected boolean isOn;
@@ -16,6 +16,12 @@ public class Machine {
 	
 	public void turnOff(){
 		isOn = false;
+	}
+
+	@Override
+	public boolean isOn() {
+		// TODO Auto-generated method stub
+		return isOn;
 	}
 
 }

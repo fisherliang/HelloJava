@@ -1,21 +1,22 @@
 package printing;
 
-public class Printer extends Machine {
+public class Printer implements IMachine {
 	
 	//public boolean isOn;
 	private String modelNumber;
 	private PaperTray PaperTray = new PaperTray();
+	private Machine machine;
+	
 	
 	public Printer(boolean isOn, String modelNumber){
-		//this.isOn = isOn;
-		super(isOn);
+		machine = new Machine(isOn);
 		this.modelNumber = modelNumber;
 	}
 	
 	@Override
 	public void turnOn(){
-		System.out.println("Warming up print engine.");
-		super.turnOn();
+		System.out.println("Warming up printer.");
+		machine.turnOn();
 	}
 	
 	public void print(int copies)
@@ -25,7 +26,7 @@ public class Printer extends Machine {
 		
 		String onStatus = "";
 		
-		if(isOn)
+		if(machine.isOn())
 			onStatus = " is On!";
 		else
 			onStatus = " is Off.";
@@ -69,5 +70,17 @@ public class Printer extends Machine {
 		// TODO Auto-generated method stub
 		PaperTray.addPaper(count);
 		
+	}
+
+	@Override
+	public void turnOff() {
+		// TODO Auto-generated method stub
+		machine.turnOff();
+	}
+
+	@Override
+	public boolean isOn() {
+		// TODO Auto-generated method stub
+		return machine.isOn();
 	}
 }
