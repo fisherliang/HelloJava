@@ -12,6 +12,12 @@ public class Printer extends Machine {
 		this.modelNumber = modelNumber;
 	}
 	
+	@Override
+	public void turnOn(){
+		System.out.println("Warming up print engine.");
+		super.turnOn();
+	}
+	
 	public void print(int copies)
 	{
 		//System.out.println(isOn);

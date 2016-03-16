@@ -11,6 +11,7 @@ public class Machine {
 	
 	public void turnOn(){
 		isOn = true;
+			System.out.println("Machine is on.");
 	}
 	
 	public void turnOff(){
