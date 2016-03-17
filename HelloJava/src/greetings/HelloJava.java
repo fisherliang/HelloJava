@@ -1,5 +1,8 @@
 package greetings;
 
+import java.io.File;
+import java.io.IOException;
+
 import printing.BWCartridge;
 import printing.ColorCartridge;
 import printing.ICartridge;
@@ -11,6 +14,15 @@ public class HelloJava {
 	{
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
+		
+		File file = new File("D\\test.txt");
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//throw new printerException(e, "Other message.");
+		}
 		
 		try{
 			printer.print(-1);
