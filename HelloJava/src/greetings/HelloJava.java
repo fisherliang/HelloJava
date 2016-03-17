@@ -17,8 +17,12 @@ public class HelloJava {
 		}
 		catch(IllegalArgumentException exception){
 			System.out.println(exception.getMessage());
+			return;
 		}
-		
+		finally
+		{
+			printer.turnOff();
+		}
 
 	}
 

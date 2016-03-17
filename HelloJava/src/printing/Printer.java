@@ -31,7 +31,7 @@ public class Printer<T> implements IMachine {
 	public void print(int copies)
 	{
 		
-		checkCopies(copies);
+		//checkCopies(copies);
 		
 		String onStatus = "";
 		

@@ -11,11 +11,12 @@ public class Machine implements IMachine {
 	
 	public void turnOn(){
 		isOn = true;
-			System.out.println("Machine is on.");
+			System.out.println("Machine is On.");
 	}
 	
 	public void turnOff(){
 		isOn = false;
+		System.out.println("Machine is Off.");
 	}
 
 	@Override
