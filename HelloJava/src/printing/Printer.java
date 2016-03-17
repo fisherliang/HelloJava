@@ -30,7 +30,9 @@ public class Printer<T> implements IMachine {
 	
 	public void print(int copies)
 	{
-		//System.out.println(cartridge.getFillPercentage());
+		
+		checkCopies(copies);
+		
 		String onStatus = "";
 		
 		if(machine.isOn())
@@ -50,6 +52,11 @@ public class Printer<T> implements IMachine {
 		
 		if(PaperTray.isEmpty())
 			System.out.println("Reload the PaperTray");
+	}
+
+	private void checkCopies(int copies) {
+		if(copies<0)
+			throw new IllegalArgumentException("Can't print less than 0 copies.");
 	}
 	
 	public void printColor(){

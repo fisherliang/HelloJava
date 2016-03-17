@@ -11,15 +11,15 @@ public class HelloJava {
 	{
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
-		Printer<ColorCartridge> printer2 = new Printer<ColorCartridge>(true, "My Printer 2", new ColorCartridge());
-
-		printOne(printer);
+		
+		try{
+			printer.print(-1);
+		}
+		catch(IllegalArgumentException exception){
+			System.out.println(exception.getMessage());
+		}
+		
 
 	}
-	
-	public static void printOne(Printer<? extends ICartridge> printer)
-	{
-		String fillPercentage = printer.getCartridge().getFillPercentage();
-		System.out.println(fillPercentage);
-	}
+
 }
