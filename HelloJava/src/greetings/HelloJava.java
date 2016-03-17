@@ -1,7 +1,6 @@
 package greetings;
 
-import printing.IMachine;
-import printing.Machine;
+import printing.BWCartridge;
 import printing.Printer;
 
 public class HelloJava {
@@ -9,9 +8,11 @@ public class HelloJava {
 	public static void main(String[] args)
 	{
 		
-		IMachine machine = new Printer(true, "My Printer");
-		//Machine machine = new Machine(false);
-		machine.turnOn();
+		//Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", new ColorCartridge());
+		//printer.print(1);
+		
+		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
+		printer.print(1);
 
 		
 	}

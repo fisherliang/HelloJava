@@ -1,16 +1,17 @@
 package printing;
 
-public class Printer implements IMachine {
+public class Printer<T> implements IMachine {
 	
-	//public boolean isOn;
 	private String modelNumber;
 	private PaperTray PaperTray = new PaperTray();
 	private Machine machine;
+	private T cartridge;
 	
 	
-	public Printer(boolean isOn, String modelNumber){
+	public Printer(boolean isOn, String modelNumber, T cartridge){
 		machine = new Machine(isOn);
 		this.modelNumber = modelNumber;
+		this.cartridge = cartridge;
 	}
 	
 	@Override
@@ -21,9 +22,7 @@ public class Printer implements IMachine {
 	
 	public void print(int copies)
 	{
-		//System.out.println(isOn);
-		//System.out.println(modelNumber);
-		
+		System.out.println(cartridge.toString());
 		String onStatus = "";
 		
 		if(machine.isOn())
@@ -33,7 +32,7 @@ public class Printer implements IMachine {
 		
 		String textToPrint = modelNumber + onStatus;
 		
-		//for(int i = 0;i<copies;i++)
+
 		while(copies>0 && !PaperTray.isEmpty())
 		{
 			System.out.println(textToPrint);
