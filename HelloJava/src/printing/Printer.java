@@ -20,6 +20,14 @@ public class Printer<T> implements IMachine {
 		machine.turnOn();
 	}
 	
+	public <U> void printUsingCartridge(U cartridge, String message)
+	{
+		System.out.println(cartridge.toString());
+		System.out.println(message);
+		System.out.println(cartridge.toString());
+		
+	}
+	
 	public void print(int copies)
 	{
 		System.out.println(cartridge.toString());

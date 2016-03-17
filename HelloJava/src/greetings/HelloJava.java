@@ -1,6 +1,7 @@
 package greetings;
 
 import printing.BWCartridge;
+import printing.ColorCartridge;
 import printing.Printer;
 
 public class HelloJava {
@@ -12,7 +13,7 @@ public class HelloJava {
 		//printer.print(1);
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
-		printer.print(1);
+		printer.printUsingCartridge(new ColorCartridge(), "Hi");
 
 		
 	}
