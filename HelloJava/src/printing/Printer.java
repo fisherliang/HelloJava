@@ -47,6 +47,7 @@ public class Printer<T extends ICartridge> implements IMachine {
 		
 		String textToPrint = modelNumber + onStatus;
 		int pageNumber = 1;
+		textToPrint += "|||" + cartridge.printColor() + "|||";
 
 		while(copies>0 && !PaperTray.isEmpty())
 		{
