@@ -2,10 +2,18 @@ package printing;
 
 public enum ColorCartridge implements ICartridge {
 	
-	red, 
-	blue,
-	green,
-	yellow;
+	red("Red"), 
+	blue("Blue"),
+	green("Green"),
+	yellow("Yellow");
+	
+	private String colorText;
+	
+	private ColorCartridge(String colorText)
+	{
+		this.colorText = colorText;
+		
+	}
 	
 	@Override
 	public String toString(){
@@ -15,6 +23,12 @@ public enum ColorCartridge implements ICartridge {
 	@Override
 	public String getFillPercentage(){
 		return "97%";
+	}
+
+	@Override
+	public String printColor() {
+		// TODO Auto-generated method stub
+		return colorText;
 	}
 
 }

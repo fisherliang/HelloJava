@@ -8,24 +8,9 @@ public class HelloJava {
 	public static void main(String[] args)
 	{
 		
-		Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", ColorCartridge.red);
+		Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", ColorCartridge.blue);
 		
-		switch(printer.getCartridge())
-		{
-		case blue:
-			System.out.println("Blue");
-			break;
-		case red:
-			System.out.println("Red");
-			break;
-		case green:
-			System.out.println("Green");
-			break;
-		case yellow:
-			System.out.println("Yellow");
-			break;
 		
-		}
 		
 	}
 		

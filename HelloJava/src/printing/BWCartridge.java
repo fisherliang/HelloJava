@@ -12,5 +12,11 @@ public class BWCartridge implements ICartridge {
 	public String getFillPercentage(){
 		return "50%";
 	}
+
+	@Override
+	public String printColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
