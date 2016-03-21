@@ -1,7 +1,9 @@
 package greetings;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import printing.BWCartridge;
 import printing.Printer;
@@ -13,16 +15,39 @@ public class HelloJava {
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
 		
-		Queue<String> myQueue = new LinkedList<String>();
+		Map<String, List<Integer>> testScores = new HashMap<String, List<Integer>>();
+		List<Integer> FisherScores = new ArrayList<Integer>();
 		
-		myQueue.offer("a");
-		myQueue.offer("b");
-		myQueue.offer("c");
+		FisherScores.add(80);
+		FisherScores.add(50);
+		FisherScores.add(90);
+		FisherScores.add(88);
 		
-		while(myQueue.peek() != null)
+		testScores.put("Fisher", FisherScores);
+		
+		List<Integer> JulieScores = new ArrayList<Integer>();
+		
+		JulieScores.add(80);
+		JulieScores.add(90);
+		JulieScores.add(98);
+		
+		testScores.put("Julie", JulieScores);
+		
+		List<Integer> AllenScores = new ArrayList<Integer>();
+		
+		AllenScores.add(40);
+		AllenScores.add(50);
+	
+		testScores.put("Allen", AllenScores);
+		
+		printScores("Fisher", testScores);
+	}	
+	
+		public static void printScores(String studentName, Map<String, List<Integer>> scoreMap)
 		{
-			System.out.println(myQueue.poll());
+			List<Integer> scores = scoreMap.get(studentName);
+			for(int score : scores)
+				System.out.println(score);
 		}
-	}
-
+		
 }
