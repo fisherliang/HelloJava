@@ -3,7 +3,7 @@ package printing;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Printer<T> implements IMachine {
+public class Printer<T extends ICartridge> implements IMachine {
 	
 	private String modelNumber;
 	private PaperTray PaperTray = new PaperTray();
