@@ -1,11 +1,15 @@
 package printing;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Printer<T> implements IMachine {
 	
 	private String modelNumber;
 	private PaperTray PaperTray = new PaperTray();
 	private Machine machine;
 	private T cartridge;
+	private List<Page> pages = new ArrayList<Page>();
 	
 	
 	public Printer(boolean isOn, String modelNumber, T cartridge){
@@ -45,14 +49,21 @@ public class Printer<T> implements IMachine {
 
 		while(copies>0 && !PaperTray.isEmpty())
 		{
-			System.out.println(textToPrint);
+			//System.out.println(textToPrint);
+			pages.add(new Page(textToPrint));
 			copies--;
 			PaperTray.usePage();
 		}
 		
 		if(PaperTray.isEmpty())
 			System.out.println("Reload the PaperTray");
-	}
+		}
+	
+		public void outPutPages(){
+			for(Page currentPage : pages){
+				System.out.println(currentPage.getText());
+			}
+		}
 
 	private void checkCopies(int copies) {
 		if(copies<0)

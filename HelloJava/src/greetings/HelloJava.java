@@ -15,27 +15,10 @@ public class HelloJava {
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
 		
-		File file = new File("D\\test.txt");
-		try {
-			file.createNewFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			//throw new printerException(e, "Other message.");
-		}
+		printer.loadPaper(10);
+		printer.print(5);
 		
-		try{
-			printer.print(-1);
-		}
-		catch(IllegalArgumentException exception){
-			System.out.println(exception.getMessage());
-			return;
-		}
-		finally
-		{
-			printer.turnOff();
-		}
-
+		printer.outPutPages();
 	}
 
 }
