@@ -1,11 +1,9 @@
 package greetings;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 import printing.BWCartridge;
-import printing.ColorCartridge;
-import printing.ICartridge;
 import printing.Printer;
 
 public class HelloJava {
@@ -15,10 +13,15 @@ public class HelloJava {
 		
 		Printer<BWCartridge> printer = new Printer<BWCartridge>(true, "My Printer", new BWCartridge());
 		
-		printer.loadPaper(10);
-		printer.print(5);
+		Set<Integer> mySet = new HashSet<Integer>();
 		
-		printer.outPutPage(3);
+		mySet.add(1);
+		mySet.add(2);
+		mySet.add(3);
+		mySet.add(1);
+		
+		// Set doesn't have duplicates, so the result is 3
+		System.out.println(mySet.size());
 	}
 
 }
