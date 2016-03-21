@@ -18,7 +18,7 @@ public class HelloJava {
 		printer.loadPaper(10);
 		printer.print(5);
 		
-		printer.outPutPages();
+		printer.outPutPage(3);
 	}
 
 }

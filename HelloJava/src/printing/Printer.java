@@ -1,7 +1,7 @@
 package printing;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Printer<T> implements IMachine {
 	
@@ -9,7 +9,8 @@ public class Printer<T> implements IMachine {
 	private PaperTray PaperTray = new PaperTray();
 	private Machine machine;
 	private T cartridge;
-	private List<Page> pages = new ArrayList<Page>();
+	//private List<Page> pages = new ArrayList<Page>();
+	private Map<Integer,Page> pageMaps = new HashMap<Integer,Page>();
 	
 	
 	public Printer(boolean isOn, String modelNumber, T cartridge){
@@ -45,13 +46,15 @@ public class Printer<T> implements IMachine {
 			onStatus = " is Off.";
 		
 		String textToPrint = modelNumber + onStatus;
-		
+		int pageNumber = 1;
 
 		while(copies>0 && !PaperTray.isEmpty())
 		{
 			//System.out.println(textToPrint);
-			pages.add(new Page(textToPrint));
+			//pages.add(new Page(textToPrint));
+			pageMaps.put(pageNumber, new Page(textToPrint + ":" + pageNumber));
 			copies--;
+			pageNumber++;
 			PaperTray.usePage();
 		}
 		
@@ -59,11 +62,11 @@ public class Printer<T> implements IMachine {
 			System.out.println("Reload the PaperTray");
 		}
 	
-		public void outPutPages(){
-			for(Page currentPage : pages){
-				System.out.println(currentPage.getText());
-			}
+		public void outPutPage(int pageNumber)
+		{
+			System.out.println(pageMaps.get(pageNumber).getText());
 		}
+		
 
 	private void checkCopies(int copies) {
 		if(copies<0)
