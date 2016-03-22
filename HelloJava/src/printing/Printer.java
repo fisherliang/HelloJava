@@ -71,15 +71,19 @@ public class Printer<T extends ICartridge> implements IMachine {
 	
 		private String getTextFromFile() {
 			FileReader reader = null;
-			String allText = "";
 			BufferedReader bReader = null;
+			CapitalizationReader capReader = null;
+			
+			String allText = "";
 			
 			try {
 				reader = new FileReader("D:\\workspace\\SubTest\\test.txt");
 				bReader = new BufferedReader(reader);
+				capReader = new CapitalizationReader(bReader);
+				
 				String line;
 				
-				while((line = bReader.readLine()) != null)
+				while((line = capReader.readLine()) != null)
 				{
 					allText += line + "\n";
 				}
@@ -94,9 +98,9 @@ public class Printer<T extends ICartridge> implements IMachine {
 			}
 			finally
 			{
-				if(bReader != null)
+				if(capReader != null)
 					try {
-						bReader.close();
+						capReader.close();
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
