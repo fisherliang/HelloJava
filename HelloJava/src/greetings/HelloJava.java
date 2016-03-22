@@ -12,7 +12,7 @@ public class HelloJava {
 		Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", ColorCartridge.blue);
 		
 		printer.loadPaper(5);
-		printer.printColor();
+		printer.outPutPage(10);
 		
 	}
 		
