@@ -130,17 +130,19 @@ public class Printer<T extends ICartridge> implements IMachine {
 		}
 		
 
+	@SuppressWarnings("unused")
 	private void checkCopies(int copies) {
 		if(copies<0)
 			throw new IllegalArgumentException("Can't print less than 0 copies.");
 	}
+	
 	
 	public void printColor(){
 		String[] colors = new String[] {"red","blue","green"};
 		
 		//for each example
 		for(String currentColor : colors){
-			if("blue".equals(currentColor))
+			if("green".equals(currentColor))
 				break;
 			System.out.println(currentColor);
 		}

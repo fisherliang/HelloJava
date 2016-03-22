@@ -15,6 +15,11 @@ public enum ColorCartridge implements ICartridge {
 		
 	}
 	
+	public String notOverriding()
+	{
+		return "";
+	}
+	
 	@Override
 	public String toString(){
 		return "Color";
