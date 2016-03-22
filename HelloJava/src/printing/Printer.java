@@ -1,5 +1,9 @@
 package printing;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,9 +49,9 @@ public class Printer<T extends ICartridge> implements IMachine {
 		else
 			onStatus = " is Off.";
 		
-		String textToPrint = modelNumber + onStatus;
+		String textToPrint = getTextFromFile();
 		int pageNumber = 1;
-		textToPrint += "|||" + cartridge.printColor() + "|||";
+		
 
 		while(copies>0 && !PaperTray.isEmpty())
 		{
@@ -63,6 +67,42 @@ public class Printer<T extends ICartridge> implements IMachine {
 			System.out.println("Reload the PaperTray");
 		}
 	
+		private String getTextFromFile() {
+			FileReader reader = null;
+			String allText = "";
+			BufferedReader bReader = null;
+			
+			try {
+				reader = new FileReader("D:\\workspace\\SubTest\\test.txt");
+				bReader = new BufferedReader(reader);
+				String line;
+				
+				while((line = bReader.readLine()) != null)
+				{
+					allText += line + "\n";
+				}
+				
+				return allText;
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally
+			{
+				if(bReader != null)
+					try {
+						bReader.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+			return "";
+	}
+
 		public void outPutPage(int pageNumber)
 		{
 			System.out.println(pageMaps.get(pageNumber).getText());

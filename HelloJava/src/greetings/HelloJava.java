@@ -10,14 +10,10 @@ public class HelloJava {
 		
 		Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", ColorCartridge.blue);
 		
-		//printer.loadPaper(5);
-		//printer.print(3);
-		//printer.outPutPage(2);
-		
-		for(ColorCartridge cartridge : ColorCartridge.values())
-		{
-			System.out.println(cartridge.printColor());
-		}
+		printer.loadPaper(5);
+		printer.print(3);
+		printer.outPutPage(2);
+
 		
 	}
 		
