@@ -3,7 +3,9 @@ package printing;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,7 +107,22 @@ public class Printer<T extends ICartridge> implements IMachine {
 
 		public void outPutPage(int pageNumber)
 		{
-			System.out.println(pageMaps.get(pageNumber).getText());
+			//System.out.println(pageMaps.get(pageNumber).getText());
+			PrintWriter writer = null;
+			try
+			{
+				writer = new PrintWriter(new FileWriter("D:\\workspace\\SubTest\\outPutPage.txt"));
+				writer.println(pageMaps.get(pageNumber).getText());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally
+			{
+				if(writer != null)
+					writer.close();
+			}
+			
 		}
 		
 
