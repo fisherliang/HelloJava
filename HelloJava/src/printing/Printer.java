@@ -33,11 +33,13 @@ public class Printer<T extends ICartridge> implements IMachine {
 		machine.turnOn();
 	}
 	
-	public <U extends ICartridge> void printUsingCartridge(U cartridge, String message)
+	public synchronized <U extends ICartridge> void printUsingCartridge(U cartridge, String message)
 	{
+		System.out.println("Entered " + Thread.currentThread().getId());
 		//System.out.println(cartridge.toString());
 		System.out.println(message);
 		//System.out.println(cartridge.toString());
+		System.out.println("Exeted " + Thread.currentThread().getId());
 		
 	}
 	

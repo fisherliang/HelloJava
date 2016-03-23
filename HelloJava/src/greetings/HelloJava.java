@@ -17,8 +17,7 @@ public class HelloJava {
 //		Thread thread = new Thread(cp);
 //		thread.start();
 		
-		//ExecutorService executor = Executors.newFixedThreadPool(10);
-		ExecutorService executor = Executors.newSingleThreadExecutor();
+		ExecutorService executor = Executors.newFixedThreadPool(100);
 		
 		executor.submit(cp);
 		executor.submit(cp);
