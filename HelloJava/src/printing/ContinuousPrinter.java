@@ -1,6 +1,6 @@
 package printing;
 
-public class ContinuousPrinter extends Thread {
+public class ContinuousPrinter implements Runnable {
 	
 	private Printer<ICartridge> printer = new Printer<ICartridge>(true, "IPrint", ColorCartridge.blue);
 
@@ -9,7 +9,7 @@ public class ContinuousPrinter extends Thread {
 
 		for(int i=0;i<100;i++)
 			printer.printUsingCartridge(ColorCartridge.blue, "In Thread " + i);
-		super.run();
+		
 	}
 
 }
