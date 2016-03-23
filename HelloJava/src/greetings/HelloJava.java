@@ -2,29 +2,22 @@ package greetings;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
-import printing.ColorCartridge;
-import printing.Printer;
-import printing.PrintingDevice;
+import printing.ContinuousPrinter;
+
 
 public class HelloJava {
 
 	public static void main(String[] args) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 	{
+		ContinuousPrinter cp = new ContinuousPrinter();
+		cp.start();
 		
-		Printer<ColorCartridge> printer = new Printer<ColorCartridge>(true, "My Printer", ColorCartridge.blue);
+		ContinuousPrinter cp2 = new ContinuousPrinter();
+		cp2.start();
 		
-		printer.loadPaper(10);
-		
-		PrintingDevice annotation = printer.getClass().getAnnotation(PrintingDevice.class);
-		
-		Method printMethod = printer.getClass().getMethod(annotation.defaultPrintMethod(), int.class);
-		
-		printMethod.invoke(printer, annotation.defaultNumberOfCopies());
-		
-		printer.outPutPage(5);
-		
+		for(int i=0;i<100;i++)
+			System.out.println("Main Thread : " + i);
 	}
 		
 }

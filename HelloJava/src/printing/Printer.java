@@ -35,9 +35,9 @@ public class Printer<T extends ICartridge> implements IMachine {
 	
 	public <U extends ICartridge> void printUsingCartridge(U cartridge, String message)
 	{
-		System.out.println(cartridge.toString());
+		//System.out.println(cartridge.toString());
 		System.out.println(message);
-		System.out.println(cartridge.toString());
+		//System.out.println(cartridge.toString());
 		
 	}
 	
